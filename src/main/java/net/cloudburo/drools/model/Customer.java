@@ -8,8 +8,12 @@ public class Customer {
     private CustomerAssets assets;
     private List<CustomerNeed> customerNeeds = new ArrayList<>();
 
+    private Offer.ProductPackage financialPackage;
+    private List<Offer.Product> products = new ArrayList();
+    private int discount;
+
     public Customer() {
-        super();   
+        super();
     }
 
     public void setLifeStage(CustomerLifeStage lifestage) {
@@ -62,6 +66,50 @@ public class Customer {
         FROM50KTO150K,
         FROM150KTO300K,
         OVER300K
+    }
+
+
+    public int getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(int discount) {
+        this.discount = discount;
+    }
+
+    public void setFinancialPackage(Offer.ProductPackage financialPackage) {
+        this.financialPackage = financialPackage;
+    }
+
+    public Offer.ProductPackage getFinancialPackage() {
+        return financialPackage;
+    }
+
+    public void addSingleProduct(Offer.Product prod) {
+        products.add(prod);
+    }
+
+    public List<Offer.Product> getProducts() {
+        return products;
+    }
+
+    public enum Product {
+        LOAN,
+        SUPERLOAN,
+        INSURANCE
+    }
+
+    public enum ProductPackage {
+        GETTINGSTARTED_PACKAGE,
+        CAREERFOCUSED_PACKAGE,
+        ADVICEFAMILY_PACKAGE,
+        EMPTYNESTER_PACKAGE,
+        GOLDENYEARS_PACKAGE,
+        BUSINESS_PACKAGE
+    }
+
+    public void setProducts(List<Offer.Product> products) {
+        this.products = products;
     }
 
 }
